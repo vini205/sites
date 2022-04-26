@@ -1,0 +1,142 @@
+@media screen and (max-width:390px) {
+    .radio{
+        display:block;
+    }
+}
+@media screen and (min-width:773px){/*tela maior que 773px*/
+    .dados{
+        display: flex;
+        flex-direction: row;
+        align-content: space-around;
+        width: 510px;
+        padding: 10px;
+        align-self: center;
+        height: 230px;
+    }
+    header{
+        color: white;
+        text-align: center;
+        }
+     section{
+        background: white;
+        border-radius: 5px;
+        padding: 15px;
+        margin: auto;
+        width: 70%;
+        max-width: 600px;
+        box-shadow: 4px  4px 3px black ;
+        }
+}
+@media screen and (max-width:773px) {
+    .dados2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+    header{
+        color: white;
+        text-align: center;
+        text-overflow: ellipsis;
+        
+        }
+    .section{
+        background: white;
+        border-radius: 5px;
+        padding: 15px;
+        margin: auto;
+        width: 80%;
+        box-shadow: 4px  4px 3px black ;
+    }
+}
+
+select{
+    outline: none;
+   -webkit-appearance: none;
+     /* Remove estilo padrão do Chrome */   
+    -moz-appearance: none;
+      /* Remove estilo padrão do FireFox */   
+    appearance: none; /* Remove estilo padrão do FireFox*/
+    background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif)  no-repeat #eeeeee;  /* Imagem de fundo (Seta) */   
+    background-position: 218px center;  /*Posição da imagem do background*/   
+    width: 250px; /* Tamanho do select, maior que o tamanho da div "div-select" */   
+    height:30px; /* Altura do select, importante para que tenha a mesma altura em todo os navegadores */   
+    border:1px solid #eeeeee;
+    padding: 3px;
+}
+body{
+    background: rgb(70, 142, 236);
+    font: normal 15pt arial;
+}
+.formulario{
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+   
+    display: flex;
+}
+
+footer{
+    font-style:italic;
+    text-align: center;
+    margin-top: 10px;
+}
+div{
+     margin-top:10px;
+     
+}
+input, button{
+    outline:none;
+}
+#numero{
+    margin-left: 5px;
+    border:solid 1px;
+    padding: 3px;
+    border-radius: 0;
+}
+h2{
+    margin-bottom: 1px;
+}
+h5{
+    margin-top: 6px;
+}
+#normal,#completa,#avancada{
+    margin-right: 15px;
+    margin-left: 0;
+}
+#btn{
+    width:50%;
+    height:30px;
+    margin: 10px 10px 10px 0px;
+    background-color: rgb(252, 252, 252);
+    color: darkblue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+}
+.labels{
+    display: inline;
+}
+#btn:hover{
+    background-color: rgb(0, 0, 139,0.2);
+    box-shadow: 12px 4px 7px;
+}
+.res{
+    margin: 5px;
+    padding: 10px;
+    text-align: left;
+}
+#numeros{
+    width: 40%;
+    height: fit-content;
+}
+.options{
+        display: inline-grid;
+        justify-items: center;
+}
+#pt, #root{
+    border-top: none;
+    border-left: solid 3px blue;
+    border-right: ridge 4px rgb(0, 0, 0);
+    border-radius: 7px;
+    padding-left: 2%;
+}

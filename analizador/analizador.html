@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="analizador.css">
+    <link rel="stylesheet" href="analizador.js">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property='og:title' content="Analizador de números">
+    <meta property='og:description' content="Quer saber alguma sequencia, ou desvendar algum número, por aqui você pode ver inúmeras análises em tempo real"> 
+    <link rel="icon" href="favicon.ico">
+    <meta property='og:image' content='favicon.ico'>
+    <title>análise</title>
+    
+</head>
+<body >
+    <header class="head">
+        <h2> <i> Analizador de Números </i></h2>
+       <h5> Quer descobrir padrões ou sequências de um número? <br>Você está no lugar certo! </h5>
+    </header>
+    <section class="section">
+        <div class="formulario">
+          <label for="numero" title="Número" > Digite o número: </label>
+          <input type="number" name="numero" title="Número" id="numero" placeholder="Número" > <br>
+          <p>Esolha o tipo de análise:</p>
+            <div class="labels radio">
+                <label  title='Normal'>Normal</label>
+                <input type="radio" title='Normal' checked name="tipo" id="normal" >
+            </div>
+            
+            <div class="labels radio">
+                <label title='Avançada' >Avançada</label>
+                <input title='Avançada' type="radio" name="tipo" id="avancada" >
+            </div>
+            <div class="labels radio">
+              <label  title='Completa'>Completa</label>
+              <input  title='Completa' type="radio" name="tipo" id="completa" >
+            </div>
+            
+            
+            <div class="dados dados2">
+            <div id='numeros' >
+
+            </div>
+            
+            <div class='options'>
+            <label for='potencia'> Escolha a potência</label>
+            <input type='number' value='2' id='pt' name='potencia' placeholder='Escreva a pontência' title='potência'><br>
+            <label for='raiz'> Escolha a raiz</label>
+            <input type='number' value='2' id='root' name='raiz' placeholder='Raiz' title='Raiz'><br> 
+            <label for="conta">Escolha a operação que deseja fazer:</label>
+            <select name="conta" id="conta">
+                <option value="multiplicação">Multiplicação</option>
+                <option value="divisão">Divisão</option>
+                <option value="subtração">Subtração</option>
+                <option value="adição">Adição</option>
+                <option value="resto">Resto de divisão</option>
+            </select>
+            </div>
+
+            </div>
+            <input title=" cheque os resultados" id="btn" type="button" onclick="analiseNumbers()" value="Checar">
+        </div >
+    
+        <div class="res">
+            <p id='p'>Digite os números, escolha o tipo de analise e clique em checar para ver os resultados </p>
+        </div>
+        
+       
+    </section>
+
+    <footer>
+      <small>  @LilomaykePages</small>
+    </footer>
+    <script src="analizador.js" ></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórias</title>
+    <link rel="stylesheet" href="hist.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <section id="title">Histórias</section>
+    <main>
+        <div class="info">Para criar sua história, crie um personagem</div>
+        <section id="dadosPersonagem">
+            <div class="classItem">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" maxlength="40" minlength="3">
+            </div>
+            
+            <div class="classItem">
+                <label for="idade">Idade:</label>
+                <input type="number" name="idade" id="idade">
+            </div>
+            
+            <div class="classItem">
+                <label for="genero">Gênero:</label>
+                <input type="radio" name="genero"  id="genderM">
+                <input type="radio" name="genero"  id="genderF">
+                <input type="radio" name="genero"  id="genderO">
+            </div>
+
+            <div class="classItem">
+                <label for="birth">Data de nascimento:</label>
+                <input type="date" name="birth" id="birth">
+            </div>
+
+            <div class="classItem">
+                <label for="cidade">Cidade:</label>
+                <input type="text" name="cidade" title="cidade" placeholder="cidade" id="cidade">
+            </div>
+        </section>
+        <section id="histoiaContainer">
+
+        </section>
+    </main>
+
+    <link rel="stylesheet" href="hist.js">
+</body>
+</html>
+

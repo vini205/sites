@@ -1,0 +1,49 @@
+body{
+    background-color: rgb(255, 255, 255);
+ }
+ p, h5, ol{
+     font-size: 35px;
+ }
+ fieldset{
+     background-color: none ;
+     fill-opacity: 80%;
+     border-radius: 2px 2px 12px 12px ;
+     border-style: solid 5px;
+     border-color: royalblue;
+     margin: 10px;
+ }
+ .fotos{
+     border: solid 4px black;
+ 
+ }
+ a{
+     color:black;
+     padding: 5px;
+     border-radius: 3px;
+     border: solid 5px gray;
+     margin: 30px;
+     background-color:white;
+ }
+ .flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    align-items: center;
+    color:blanchedalmond;
+}
+.links{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    border:solid rgb(81, 255, 0);
+    background-color: rgb(199, 43, 43);
+    padding: 3px;
+    margin: 10px 2px 0 2px;
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: pre;
+    border-collapse: collapse;
+    border-top-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}

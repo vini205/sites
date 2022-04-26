@@ -1,0 +1,55 @@
+:root{
+ --fontPixel:'VT3','Courier';
+ --fontTech:'TechMono','Courier'; 
+}
+  @font-face {
+  font-family: 'VT3';
+  src: url('fonts/VT323/VT323-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'TechMono';
+  src: url('fonts/Share_Tech_Mono/ShareTechMono-Regular.ttf') format('truetype');
+}
+html{
+  font-size: 62.5%;
+}
+label{
+  font: 1.4rem var(--fontTech);
+}
+body{
+  background-color: black;
+  color: whitesmoke;
+  font-family: var(--fontTech), monospace;
+}
+#title{
+  text-align: center;
+  margin-top: 40px;
+  font-size: 2.8rem;
+  font-family: var(--fontPixel);
+}
+main{
+  border: solid white;
+  padding: 12px;
+  margin: 0 5%;
+}
+.info{
+  margin: 3px 10px;
+}
+input{
+  outline: none;
+  background-color: rgba(80, 80, 80, 0.64);
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.dadosPersonagem{
+  display: grid;
+  grid-template: 150px 150px/  29px 29px;
+  width: 500px;
+  gap: 5px 5px;
+}
+.classItem{
+  border: solid;
+  width: 170px;
+}

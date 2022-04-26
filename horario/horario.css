@@ -1,0 +1,56 @@
+@media screen and (max-width: 720px) {
+	.aum{
+        font-size: 25px;
+    }
+}   
+body{
+    background: rgb(70, 142, 236);
+    font: normal 15pt arial;
+
+}
+header{
+color: white;
+text-align: center;
+}
+
+section{
+background: white;
+border-radius: 5px;
+padding: 15px;
+width: 500px;
+margin: auto;
+box-shadow: 4px  4px 3px black ;
+
+}
+ footer{
+    font-style:italic;
+    text-align: center;
+ }
+ div{
+     margin-top:10px;
+ }
+ .center{
+     text-align: center;
+ }
+ .flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.links{
+    text-decoration: none;
+    color: rgb(35, 7, 66);
+    border:solid rgb(81, 255, 0);
+    background-color: rgb(175, 175, 175);
+    padding: 3px;
+    margin: 10px 2px 0 2px;
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: pre;
+    border-collapse: collapse;
+    border-top-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
