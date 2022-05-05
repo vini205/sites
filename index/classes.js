@@ -126,7 +126,6 @@ function put( ){
   people.appendChild(divOrg);
   people.appendChild(btnClasses);
   spAn.innerText='-'
-  
   spAn.removeEventListener('click',put)
   spAn.addEventListener('click',out);
 }  
@@ -136,7 +135,6 @@ function out(){
     spAn.removeEventListener('click',out)
     spAn.addEventListener('click',put)
 }
-
 class Person {
     constructor(name,live,birth,occupation,idade,forte,sonho,fraco,like,dislike,complemento,sexo){
         this.name=name;
@@ -164,7 +162,7 @@ function addPerson() {
           toPut.push(inputs[index].value)
           c(inputs[index])
           continue;
-      }  
+      } 
       if(inputs[index].className=='inputCharacter'){
           if(inputs[index].value==''){
             toPut.push('Sem informações')
@@ -226,6 +224,6 @@ function addPerson() {
     person.title='Clique 2 vezes para apagar'
     people.appendChild(divCor)
     person.addEventListener('dblclick',function(){
-        person.parentNode.removeChild(person);
+    person.parentNode.removeChild(person);
     })
 }
