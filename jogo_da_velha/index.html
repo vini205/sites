@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Jogo da Velha</title>
+</head>
+<body>
+  <main id="main">
+    <h1>Jogo da Velha</h1>
+    <section>
+      <table>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </section>
+  </main>
+  <aside>
+    <section>
+      <label for="type">Modo de jogo:</label>
+      <button class="btn-type">Padrão</button>
+      <button class="btn-type">Com Cores!</button>
+    </section>
+      <div class="cor">
+        <div>
+          <label for="colorPlayerOne">Cor do jogador 1</label>
+          <input type="color" name="colorPlayerOne" id="colorPlayerOne">
+        </div>
+        <div>
+          <label for="colorPlayerTwo">Cor do jogador 2</label>
+          <input type="color" name="colorPlayerTwo" id="colorPlayerTwo">
+        </div>
+      </div>
+  </aside>
+  <div class="start-btn">
+    <h1>START</h1>
+  </div>
+  <div id="config"><img src="img/Vectorconfig.svg" alt=""></div>
+  <div class="config">
+    <div>
+      <label for="fundo">Cor do fundo</label> <br>
+      <input type="color" name="fundo" id="fundo">
+    </div>
+    <div>
+      <label for="tdColor">Cor do jogo da velha</label><br>
+      <input type="color" name="tdColo" id="tdColor">
+    </div>
+    <div>
+      <label for="background">Cor do background</label><br>
+      <input type="color" name="background" id="background">
+    </div>
+    <div>
+      <label for="textoSecundario">Cor do texto</label><br>
+      <input type="color" name="textoSecundario" id="textoSecundario">
+    </div>
+    <div>
+      <label for="TextoPrimario">Cor do texto 2</label><br>
+      <input type="color" name="TextoPrimario" id="textoPrimario">
+    </div>
+    <div>
+      <label for="backOfAside">Cor do fundo 2</label> <br>
+      <input type="color" name="backOfAside" id="backOfAside">
+    </div>
+    <div class="livre">
+      <label for="modeLivre">Modo Livre</label>
+      <input type="button" id="modoLivre" value="">
+    </div>
+    
+      <button id="saveChanges">Save Changes</button>
+    
+  </div>
+  <script src="script.js"></script><!--Game Script-->
+  <script src="scriptCss.js"></script><!--Confif script-->
+</body>
+</html>
