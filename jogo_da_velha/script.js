@@ -1,10 +1,28 @@
-let td = document.getElementsByTagName('td');
+let td = document.getElementsByClassName('tdG');
 let btn_types = document.getElementsByClassName('btn-type')
 let playColorInput01 = document.getElementById('colorPlayerOne')
 let playColorINput02 = document.getElementById('colorPlayerTwo')
 let p = document.createElement('p')
 let main = document.getElementById('main');
 
+let pointsTable =document.createElement('table');//Tabela de pontos
+pointsTable.setAttribute('id','tablePoints')
+
+let pointsTd = document.createElement('td');
+pointsTd.setAttribute('class', 'tdPoints')
+let pointsTd2 = pointsTd.cloneNode()
+
+pointsTd2.innerHTML='Player 2'
+pointsTd.innerHTML='Player 1'
+
+let pointsTr =document.createElement('tr');
+pointsTr.setAttribute('class','trPoints')
+pointsTr.append(pointsTd,pointsTd2)
+
+let pointsTr2= pointsTr.cloneNode(true)
+
+pointsTable.append(pointsTr,pointsTr2)
+main.appendChild(pointsTable)
 
 playColorINput02.value='#ffffff'
 playColorInput01.value='#000000'
@@ -101,31 +119,44 @@ function eraseGame() {
   }
   player=1
   turnCount=0;
+  pointsTable.style.display='none'
 }
 function c(c) {
   console.log(c)
 } 
-function win(who,i,arr,passo) {
+function win(who,i) {
   let txt;
   if(who=='X'){
-    txt= 'O jogador número 1 Ganhou!! U+1F3C6 '
+    txt= 'O jogador número 1 Ganhou!! &#1F3C6; '
+    p.innerHTML=txt
+    main.appendChild(p)
+    jogadas.player1++
+    for (const el of i) {
+      el.style.backgroundColor= playColorINput02.value
+    }
   }else{
-
+    txt= 'O jogador número 2 Ganhou!! ${&#1F3C6}; '
+    p.innerHTML=txt
+    main.appendChild(p)
+    jogadas.player2++
+    for (const el of i) {
+      el.style.backgroundColor= playColorInput01.value
+    }
   }
-  c(`${who} Won`)
-   for ( i; i < arr.length; i+=passo) {
-    c(arr[i])
-  } 
+  pointsTr.firstChild.innerHTML=jogadas.player1
+  pointsTr2.lastChild.innerHTML=jogadas.player2
+
+  //pointsTable.style.display='block'
 }
 function isOver(ele) {
   c('Over 5 !')
-  for (const passo of [1,3,4]) {//1 Vertical, 3 Horizontal, 4 diagonal
+  for (const passo of [1,3,4]) {
     if(passo==3){//vertical
       for(let index=0;index<=2;index++){
         console.log(index,passo)
       if(ele[index].innerHTML==ele[index+passo].innerHTML && ele[index].innerHTML !='' && ele[index].innerHTML== ele[index+passo*2].innerHTML){
         c('Won')
-       win([true,ele[index].innerHTML,passo])
+       win(ele[index].innerHTML,[ele[index],ele[index+passo],ele[index+passo*2]])
         break;
       }
     }
@@ -134,21 +165,21 @@ function isOver(ele) {
       console.log(index,passo)
       if(ele[index].innerHTML==ele[index+passo].innerHTML && ele[index].innerHTML !='' && ele[index].innerHTML== ele[passo*2+index].innerHTML){
         c('Won')
-        win( [true,ele[index].innerHTML,passo])
+        win( ele[index].innerHTML,[ele[index],ele[index+passo],ele[index+passo*2]])
         break;
       }
     }
-  }else if(passo==4){//vertical
+  }else if(passo==4){//Diagonal
     for(let index=0;index<=2;index+=2){
       console.log(index,passo)
       if(index==2){
         if(ele[index].innerHTML==ele[passo].innerHTML && ele[index].innerHTML !='' && ele[index].innerHTML== ele[passo+index].innerHTML){
           c('Won')
-        win( [true,ele[index].innerHTML,passo])
+        win( ele[index].innerHTML,[ele[index],ele[passo],ele[index+passo]])
         } 
       }else if(ele[index].innerHTML==ele[passo].innerHTML && ele[index].innerHTML !='' && ele[index].innerHTML== ele[passo*2].innerHTML){
         c('Won')
-        win( [true,ele[index].innerHTML,passo])
+        win( ele[index].innerHTML,[ele[index],ele[passo],ele[passo*2]])
       }
     } 
   }
