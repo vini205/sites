@@ -1,3 +1,6 @@
+/**
+ * DOM elements
+ */
 let pointsTable =document.createElement('table');//Tabela de pontos
 let pointsTd = document.createElement('td');
 let pointsTd2 = document.createElement('td');
@@ -8,14 +11,9 @@ let playColorInput01 = document.getElementById('colorPlayerOne')
 let playColorINput02 = document.getElementById('colorPlayerTwo')
 let p = document.createElement('p')
 let main = document.getElementById('main');
-
-
-
-
-playColorINput02.value='#ffffff'
-playColorInput01.value='#000000'
-
-
+/*
+  Variables
+*/
 var block;//Para guardar o elemento da tabela que foi clicado
 var player =1 ;//Vez de qual Player
 var mode=10;//Modo de jogo
@@ -25,40 +23,14 @@ var jogadas = {
   player2:0
 }
 var turnCount=0;
-
 const td_id = [];
 
-let i=0; // contador do loop abaixo
-for (const el of td) {//Colocar o listener e id em todo td.
-  el.setAttribute('id',i)
-  td_id.push(el)
-  i++;
-  el.addEventListener('click',function(a) {
-  block = a.target;//mostra qual elemento foi clicado
-  if(mode==10){
-    updatePlayerP('Escolha um modo de Jogo antes de começar a jogar')
-    return
-  }
-  if(block.innerHTML!=='' && turnCount>2){
-    return
-  }else if(mode==0){
-    markSquare(block, player)
-  } else{
-    paintSquare(block,player)
-  }
-  })
-}
 
-for (const el of btn_types) {//Colocar o listener em todo btn
-  el.addEventListener('click',function(a) {
-  block = a.target;//mostra qual elemento foi clicado
-  if(block == btn_types[0]){
-    setGameMode(0)
-  }else{
-    setGameMode(1)
-  }
-  })
-}
+
+playColorINput02.value='#ffffff'
+playColorInput01.value='#000000'
+
+//Functions
 
 function setGameMode(n) {
   eraseGame()
@@ -91,13 +63,18 @@ function paintSquare(el,p) {
   }
   updatePlayerP()
 }
+function showMessage(t) {
+  let txt= t;
+  p.innerHTML=txt;
+  main.appendChild(p);
+}
 function updatePlayerP(t=`É a vez do jogador ${player}`) {
   let turn = t;
   p.innerHTML=turn;
   main.appendChild(p);
   turnCount++;
-  c(turnCount)
-  if(turnCount>=5){
+  c(turnCount);
+  if(turnCount>=5){;
     isOver(td_id);
   }
 }
@@ -217,9 +194,44 @@ function tie() {
     txt ='Empate, nenhum dos jogadores fez ponto.'
     p.innerHTML=txt
   }
-  
-    main.appendChild(p)
+  main.appendChild(p)
 }
+function zerarPts() {
+  document.location.reload()
+}
+
+let i=0; // contador do loop abaixo
+for (const el of td) {//Colocar o listener e id em todo td.
+  el.setAttribute('id',i)
+  td_id.push(el)
+  i++;
+  el.addEventListener('click',function(a) {
+  block = a.target;//mostra qual elemento foi clicado
+  if(mode==10){
+    showMessage('Escolha um modo de Jogo antes de começar a jogar')
+    return
+  }
+  if(block.innerHTML!=='' && turnCount>2){
+    return
+  }else if(mode==0){
+    markSquare(block, player)
+  } else{
+    paintSquare(block,player)
+  }
+  })
+}
+for (const el of btn_types) {//Colocar o listener em todo btn
+  el.addEventListener('click',function(a) {
+  block = a.target;//mostra qual elemento foi clicado
+  if(block == btn_types[0]){
+    setGameMode(0)
+  }else{
+    setGameMode(1)
+  }
+  })
+}
+
+/*
 function resetScore() {
   let btn =document.createElement('button')
   main.appendChild(btn)
@@ -232,6 +244,4 @@ function resetScore() {
 function removeResetBtn() {
   main.lastChild.remove()
 }
-function zerarPts() {
-  document.location.reload()
-}
+*/
