@@ -8,4 +8,4 @@
 - [https://vini205.github.io/sites/loop/loop.html](url) -> Loop
 - [https://vini205.github.io/sites/tabuada/tabuada.html](url) -> Tabuada
 - [https://vini205.github.io/sites/index/index.html](url) -> Página Inicial
-[https://vini205.github.io/sites/jogo_da_velha/index.html](url) -> Jogo da Velha
+- [https://vini205.github.io/sites/jogo_da_velha/index.html](url) -> Jogo da Velha
