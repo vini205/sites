@@ -143,7 +143,7 @@ function isOver(ele) {
     }
   }
   c(a)
-  if(a<9){
+  if(a<10){
   for (const passo of [1,3,4]) {
     if(passo==3){//vertical
       for(let index=0;index<=2;index++){
@@ -199,7 +199,6 @@ function tie() {
 function zerarPts() {
   document.location.reload()
 }
-
 let i=0; // contador do loop abaixo
 for (const el of td) {//Colocar o listener e id em todo td.
   el.setAttribute('id',i)
