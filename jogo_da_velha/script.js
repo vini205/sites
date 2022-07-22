@@ -11,6 +11,7 @@ let main = document.getElementById('main');
 
 
 
+
 playColorINput02.value='#ffffff'
 playColorInput01.value='#000000'
 
@@ -19,7 +20,7 @@ var block;//Para guardar o elemento da tabela que foi clicado
 var player =1 ;//Vez de qual Player
 var mode=10;//Modo de jogo
 let turn = `É a vez do jogador ${player}`
-let jogadas = {
+var jogadas = {
   player1:0,
   player2:0
 }
@@ -106,8 +107,10 @@ function eraseGame() {
     el.innerHTML='';
   }
   player=1
+  if(turnCount!=0){
+    main.removeChild(pointsTable)
+  }
   turnCount=0;
-  pointsTable.style.display='none'
 }
 function c(c) {
   console.log(c)
@@ -149,11 +152,21 @@ function win(who,i) {
   main.appendChild(pointsTable)
 
   pointsTable.style.display='block'
-
-  //pointsTable.style.display='block'
+  if(jogadas.player1+jogadas.player2>1){
+    pointsTable.firstChild.remove() 
+  }
+  //
 }
 function isOver(ele) {
   c('Over 5 !')
+  let a=0;
+  for (let i = 0; i < 9; i++) {
+    if(ele[i].innerHTML!= ''){
+      a++;
+    }
+  }
+  c(a)
+  if(a<9){
   for (const passo of [1,3,4]) {
     if(passo==3){//vertical
       for(let index=0;index<=2;index++){
@@ -187,5 +200,38 @@ function isOver(ele) {
       }
     } 
   }
+  }} else{
+    tie()
   }
+}
+function tie() {
+  let n =(Math.random())*10
+  let txt;
+  if(n<=3){
+  txt= 'Parece que temos um EMPATE !!  '
+  p.innerHTML=txt
+  } else if( n<=7){
+    txt='WOW, um Empate! Nenhum dos jogadores Fez ponto.'
+    p.innerHTML=txt
+  }else{
+    txt ='Empate, nenhum dos jogadores fez ponto.'
+    p.innerHTML=txt
+  }
+  
+    main.appendChild(p)
+}
+function resetScore() {
+  let btn =document.createElement('button')
+  main.appendChild(btn)
+  btn.setAttribute('class','reset')
+  btn.addEventListener('click',()=>{
+    jogadas.player1=0
+    jogadas.player2=0
+  })
+}
+function removeResetBtn() {
+  main.lastChild.remove()
+}
+function zerarPts() {
+  document.location.reload()
 }
