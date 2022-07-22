@@ -1,3 +1,7 @@
+let pointsTable =document.createElement('table');//Tabela de pontos
+let pointsTd = document.createElement('td');
+let pointsTd2 = document.createElement('td');
+let pointsTr =document.createElement('tr');
 let td = document.getElementsByClassName('tdG');
 let btn_types = document.getElementsByClassName('btn-type')
 let playColorInput01 = document.getElementById('colorPlayerOne')
@@ -5,24 +9,7 @@ let playColorINput02 = document.getElementById('colorPlayerTwo')
 let p = document.createElement('p')
 let main = document.getElementById('main');
 
-let pointsTable =document.createElement('table');//Tabela de pontos
-pointsTable.setAttribute('id','tablePoints')
 
-let pointsTd = document.createElement('td');
-pointsTd.setAttribute('class', 'tdPoints')
-let pointsTd2 = pointsTd.cloneNode()
-
-pointsTd2.innerHTML='Player 2'
-pointsTd.innerHTML='Player 1'
-
-let pointsTr =document.createElement('tr');
-pointsTr.setAttribute('class','trPoints')
-pointsTr.append(pointsTd,pointsTd2)
-
-let pointsTr2= pointsTr.cloneNode(true)
-
-pointsTable.append(pointsTr,pointsTr2)
-main.appendChild(pointsTable)
 
 playColorINput02.value='#ffffff'
 playColorInput01.value='#000000'
@@ -51,14 +38,15 @@ for (const el of td) {//Colocar o listener e id em todo td.
     updatePlayerP('Escolha um modo de Jogo antes de começar a jogar')
     return
   }
-  if(mode==0){
+  if(block.innerHTML!=='' && turnCount>2){
+    return
+  }else if(mode==0){
     markSquare(block, player)
   } else{
     paintSquare(block,player)
   }
   })
 }
-c(td_id)
 
 for (const el of btn_types) {//Colocar o listener em todo btn
   el.addEventListener('click',function(a) {
@@ -114,8 +102,8 @@ function updatePlayerP(t=`É a vez do jogador ${player}`) {
 }
 function eraseGame() {
   for (const el of td) {
-    el.style.backgroundColor=
-    el.innerHTML=''
+    el.style.backgroundColor=tdColor.value;
+    el.innerHTML='';
   }
   player=1
   turnCount=0;
@@ -127,7 +115,7 @@ function c(c) {
 function win(who,i) {
   let txt;
   if(who=='X'){
-    txt= 'O jogador número 1 Ganhou!! &#1F3C6; '
+    txt= 'O jogador número 1 Ganhou!! \u{1F3C6}  '
     p.innerHTML=txt
     main.appendChild(p)
     jogadas.player1++
@@ -135,7 +123,7 @@ function win(who,i) {
       el.style.backgroundColor= playColorINput02.value
     }
   }else{
-    txt= 'O jogador número 2 Ganhou!! ${&#1F3C6}; '
+    txt= 'O jogador número 2 Ganhou!! \u{1F3C6}  '
     p.innerHTML=txt
     main.appendChild(p)
     jogadas.player2++
@@ -143,8 +131,24 @@ function win(who,i) {
       el.style.backgroundColor= playColorInput01.value
     }
   }
-  pointsTr.firstChild.innerHTML=jogadas.player1
+
+  pointsTd.setAttribute('class', 'tdPoints')
+  pointsTable.setAttribute('id','tablePoints')
+  pointsTr.setAttribute('class','trPoints')
+  
+  pointsTd2.innerHTML='Player 2'
+  pointsTd.innerHTML='Player 1'
+  pointsTd2.setAttribute('class','tdPoints')
+
+  pointsTr.append(pointsTd,pointsTd2)
+  let pointsTr2= pointsTr.cloneNode(true)
+  pointsTr2.firstChild.innerHTML=jogadas.player1
   pointsTr2.lastChild.innerHTML=jogadas.player2
+
+  pointsTable.append(pointsTr,pointsTr2)
+  main.appendChild(pointsTable)
+
+  pointsTable.style.display='block'
 
   //pointsTable.style.display='block'
 }
