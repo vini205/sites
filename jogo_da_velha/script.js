@@ -24,6 +24,7 @@ var jogadas = {
 }
 var turnCount=0;
 const td_id = [];
+var gamefinish =false
 
 
 
@@ -88,12 +89,14 @@ function eraseGame() {
     main.removeChild(pointsTable)
   }
   turnCount=0;
+  gamefinish=false
 }
 function c(c) {
   console.log(c)
 } 
 function win(who,i) {
   let txt;
+  gamefinish= true
   if(who=='X'){
     txt= 'O jogador número 1 Ganhou!! \u{1F3C6}  '
     p.innerHTML=txt
@@ -212,7 +215,10 @@ for (const el of td) {//Colocar o listener e id em todo td.
   }
   if(block.innerHTML!=='' && turnCount>2){
     return
-  }else if(mode==0){
+  }else if(gamefinish== true){
+    return
+  }
+  else if(mode==0){
     markSquare(block, player)
   } else{
     paintSquare(block,player)
