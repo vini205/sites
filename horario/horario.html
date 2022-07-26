@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="horario.js">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>horario</title>
+    <meta property='og:title' content="Horário">
+    <meta property='og:description' content="Veja a hora!"> 
     <link rel="icon" href="favicon.ico">
 </head>
 <script>
@@ -20,8 +22,8 @@
     } else{
       msg.innerHTML=`Agora são  ${hora}:${minute}:${second} horas`;
     }
-    if( hora> 12 && hora < 7){
-      document.getElementById('imagem').src='tarde.png';
+    if( hora> 12 ){
+      document.getElementById('imagem').src='../images/noite.png';
     } else if(hora>6 && hora <6){
       document.getElementById('imagem').src="/M1M0/noite.png";
     }
