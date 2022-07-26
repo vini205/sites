@@ -1,5 +1,15 @@
 var status =true;
 
+const decimalCount = num => {
+                // Convert to String
+                const numStr = String(num);
+                // String Contains Decimal
+                if (numStr.includes('.')) {
+                   return numStr.split('.')[1].length;
+                };
+                // String Does Not Contain Decimal
+                return 0;
+             }
 
 function looping() {
     var inicio = document.querySelector("#inicio").value;
@@ -11,28 +21,40 @@ function looping() {
         let doc =document.getElementById("sp").className="span";
         document.getElementById("sp").innerHTML="Veja se os dados estão certos";
     } else{
-        let fimN= Number.parseInt(fim);
-        let inicioN= Number.parseInt(inicio);
-        let passoN= Number.parseInt(passo);
+        let fimN= Number(fim);
+        let inicioN= Number(inicio);
+        let passoN= Number(passo);
         if(passoN <= 0){
             passoN=1;
         }
     //if(fimN-inicioN > passoN){
     if(inicioN<= fimN){
         while(inicioN <= fimN){
+            if(decimalCount(inicioN)>3){
+            div.innerHTML+=` ${inicioN.toFixed(3)} \u{1F449}`;
+            inicioN += passoN;   
+            }
             div.innerHTML+=` ${inicioN} \u{1F449}`;
-            inicioN += passoN;        
+            inicioN += passoN;     
+
         }
         
     } else {
         while(inicioN >= fimN ){
-            div.innerHTML+=` ${inicioN} \u{1F449}`;
-            inicioN -= passoN;
+            if(decimalCount(inicioN)>3){
+                div.innerHTML-=` ${inicioN.toFixed(3)} \u{1F449}`;
+                inicioN -= passoN;   
+                }
+                div.innerHTML-=` ${inicioN} \u{1F449}`;
+                inicioN -= passoN;     
+    
+            }
+            
         }        
     }
     div.innerHTML+=`  \u{1F3C1}`;
 }
-}   
+
 
 
 if (status == 'true') {
