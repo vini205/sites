@@ -30,12 +30,14 @@ function looping() {
     //if(fimN-inicioN > passoN){
     if(inicioN<= fimN){
         while(inicioN <= fimN){
+            
             if(decimalCount(inicioN)>3){
-            div.innerHTML+=` ${inicioN.toFixed(3)} \u{1F449}`;
+            div.innerHTML+=` ${inicioN.toFixed(2)} \u{1F449}`;
             inicioN += passoN;   
+            }else{
+                div.innerHTML+=` ${inicioN} \u{1F449}`;
+                inicioN += passoN;     
             }
-            div.innerHTML+=` ${inicioN} \u{1F449}`;
-            inicioN += passoN;     
 
         }
         
@@ -44,9 +46,10 @@ function looping() {
             if(decimalCount(inicioN)>3){
                 div.innerHTML-=` ${inicioN.toFixed(3)} \u{1F449}`;
                 inicioN -= passoN;   
+                } else{
+                    div.innerHTML-=` ${inicioN} \u{1F449}`;
+                    inicioN -= passoN;     
                 }
-                div.innerHTML-=` ${inicioN} \u{1F449}`;
-                inicioN -= passoN;     
     
             }
             
