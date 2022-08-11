@@ -125,6 +125,7 @@ h5{
     color: darkblue;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 18px;
+    transition: all 0.5s;
 }
 .labels{
     display: inline;
