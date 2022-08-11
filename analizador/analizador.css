@@ -75,7 +75,20 @@ body{
    
     display: flex;
 }
-
+.formulario button{
+    border-radius: 5px;
+    outline: none;
+    background-color: rgb(115, 115, 248);
+    color: white;
+    font-weight: bold;
+    margin: 5px;
+    padding: 5px;
+    transition: background-color 0.4s;
+    border: none;
+}
+.formulario button:hover{
+    background-color: rgb(57, 57, 180);
+}
 footer{
     font-style:italic;
     text-align: center;

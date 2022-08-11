@@ -6,17 +6,18 @@ const p = d.getElementById('numeros');
 let numeros=[];
 input.focus()
 
-input.addEventListener('keypress',add)
-function add(key) {//add os números nas arrays
+input.addEventListener('keypress',(key)=>{
     if (key.charCode==13 && input.value!=='') {
-        let number=Number(input.value);
+       add()
+    }
+})
+function add() {//add os números nas arrays
+     let number=Number(input.value);
         if (typeof(number)=='number') {
             numeros.push(number);
             input.value='';
             p.innerHTML+='<span ondblclick="exclude(this.innerText)" >'+number+'</span> - ';
         }
-    }
-    
 }
 /*
 ------------------------------------------------------Analises
